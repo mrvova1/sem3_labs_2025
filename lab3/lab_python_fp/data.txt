@@ -1,0 +1,17 @@
+[
+{
+    "work name": "программист C++",
+    "place": "1",
+    "salary level": "1"
+},
+{
+    "work name": "3",
+    "place": "3",
+    "salary level": "3"
+},
+{
+    "work name": "Программист python",
+    "place": "2",
+    "salary level": "2"
+}
+]
