@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>VNRed — Visual Novel Editor</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <div id="app" class="app-root">
+    <!-- LEFT SIDEBAR -->
+    <aside class="panel left">
+      <header class="panel-header">VNRed</header>
+
+      <section class="panel-section">
+        <h3>Assets</h3>
+        <div class="assets-controls">
+          <input id="assetUpload" type="file" accept="image/*" multiple />
+        </div>
+        <div id="assetsList" class="assets-list"></div>
+      </section>
+
+      <section class="panel-section">
+        <h3>Groups</h3>
+        <div id="groupsList" class="groups-list"></div>
+        <button id="addGroupBtn" class="btn">+ Add Group</button>
+      </section>
+
+      <section class="panel-section">
+        <h3>Scenes</h3>
+        <div class="scenes-controls">
+          <button id="prevScene" class="btn">←</button>
+          <button id="nextScene" class="btn">→</button>
+          <button id="newScene" class="btn">+ Scene</button>
+          <button id="dupScene" class="btn">⎘ Copy</button>
+          <button id="delScene" class="btn danger">🗑️</button>
+        </div>
+        <div id="scenesList" class="scenes-list"></div>
+      </section>
+    </aside>
+
+    <!-- CENTER CANVAS -->
+    <main class="canvas-area">
+      <div class="toolbar">
+        <div class="toolbar-left">Scene: <span id="currentSceneName">Untitled</span></div>
+        <div class="toolbar-right">
+          <button id="playPreview" class="btn">Play</button>
+          <button id="exportBtn" class="btn primary">Export .txt (JSON)</button>
+        </div>
+      </div>
+
+      <div id="stage" class="stage" tabindex="0">
+        <!-- Scene items (layers) will be appended here -->
+      </div>
+
+      <div class="bottom-panel">
+        <section class="dialogue-editor">
+          <h4>Dialogue</h4>
+          <div id="dialogLines" class="dialog-lines"></div>
+          <button id="addLineBtn" class="btn small">+ Line</button>
+        </section>
+
+        <section class="layers-panel">
+          <h4>Layers</h4>
+          <div id="layersList" class="layers-list"></div>
+        </section>
+      </div>
+    </main>
+
+    <!-- RIGHT PROPERTIES -->
+    <aside class="panel right">
+      <section class="panel-section">
+        <h3>Properties</h3>
+        <div class="prop-row">
+          <label>Selected:</label>
+          <div id="selectedInfo">None</div>
+        </div>
+
+        <div class="prop-row">
+          <label>Position X</label>
+          <input id="propX" type="number" />
+        </div>
+        <div class="prop-row">
+          <label>Position Y</label>
+          <input id="propY" type="number" />
+        </div>
+        <div class="prop-row">
+          <label>Rotation (deg)</label>
+          <input id="propRot" type="number" />
+        </div>
+        <div class="prop-row">
+          <label>Scale</label>
+          <input id="propScale" step="0.01" min="0.1" max="5" type="number" value="1" />
+        </div>
+        <div class="prop-row">
+          <label>Opacity</label>
+          <input id="propOpacity" step="0.01" min="0" max="1" type="number" value="1" />
+        </div>
+        <div class="prop-row">
+          <button id="bringForward" class="btn small">Bring +</button>
+          <button id="sendBackward" class="btn small">Send -</button>
+        </div>
+
+        <hr />
+        <h4>Group Settings</h4>
+        <div class="prop-row">
+          <label>Group Name</label>
+          <input id="groupNameInput" type="text" />
+        </div>
+        <div class="prop-row">
+          <label>Music (file / url)</label>
+          <input id="groupMusicInput" type="text" placeholder="bgm_intro.mp3 or URL" />
+        </div>
+      </section>
+    </aside>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
